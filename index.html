@@ -59,7 +59,7 @@
       width: 0%;
       height: 4px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
-      z-index: 1000;
+      z-index: 1001;
       transition: width 0.1s ease;
     }
 
@@ -72,7 +72,14 @@
       backdrop-filter: blur(20px);
       box-shadow: 0 2px 20px rgba(0,0,0,0.1);
       z-index: 100;
-      transition: all 0.3s ease;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  background 0.3s ease,
+                  box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .nav.nav--hidden {
+      transform: translateY(-110%);
     }
 
     .nav-content {
@@ -133,7 +140,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 5%;
+      padding: 90px 5% 40px;
       position: relative;
     }
 
@@ -250,7 +257,7 @@
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 100px;
       height: 4px;
       background: linear-gradient(45deg, var(--primary), var(--secondary));
       border-radius: 2px;
@@ -486,6 +493,17 @@
       .nav-links {
         display: none;
       }
+
+      .hero {
+        justify-content: flex-start;
+        padding-top: 100px;
+      }
+
+      .hero-avatar {
+        width: 140px;
+        height: 140px;
+        margin-top: 0.5rem;
+      }
       
       .cta-buttons {
         flex-direction: column;
@@ -510,14 +528,14 @@
 <body>
   <div class="bg-particles"></div>
   <div class="scroll-progress"></div>
-  <nav class="nav">
+  <nav class="nav" id="mainNav">
     <div class="nav-content">
-      <div class="logo">FahriDev</div>
+      <div class="logo">FDev</div>
       <ul class="nav-links">
-        <li><a href="#home" class="nav-link active">Beranda</a></li>
-        <li><a href="#skills" class="nav-link">Skill</a></li>
-        <li><a href="#projects" class="nav-link">Project</a></li>
-        <li><a href="#contact" class="nav-link">Kontak</a></li>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -525,77 +543,68 @@
   <section id="home" class="hero">
     <img src="sensei.jpeg" alt="Muhammad Fahri" class="hero-avatar">
     <h1>fahrii</h1>
-    <p>SMK Negeri 1 Percut Sei Tuan | Calon Backend Developer yang sedang belajar dengan semangat untuk menguasai PHP, JavaScript, dan membangun sistem backend yang powerful. Siap berkontribusi dalam tim development! 🚀</p>
-    <div class="cta-buttons">
-  
-      <a href="#skills" class="btn btn-primary">
-        <i class="fas fa-graduation-cap"></i>
-        Skill Saya
-      </a>
+<p>
+  Halo! 👋 
+  <br>Selamat datang di portfolio-ku.
+  <br>Namaku <strong>Muhammad Fahri Al Faridzi</strong>, tapi biasa dipanggil
+  <strong>fahrii</strong>. Aku seorang siswa SMK yang sekarang lagi belajar
+  web development.
+</p>
 
-    </div>
+<p>
+  Portfolio ini berisi skill yang sedang aku pelajari dan project yang aku
+  kerjakan selama proses belajar. Memang masih sederhana, tapi semoga
+  seiring waktu bisa terus berkembang. Makasih udah mampir! 🚀
+</p>
   </section>
 
   <section id="skills" class="hidden">
-    <h2 class="section-title">Skill Saya</h2>
+    <h2 class="section-title">Skills</h2>
     <div class="skills-grid">
       <div class="skill-card">
-        <div class="skill-icon">
-          <i class="fab fa-html5"></i>
-        </div>
+        <div class="skill-icon"><i class="fab fa-html5"></i></div>
         <h3>HTML</h3>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">
-          <i class="fab fa-css3-alt"></i>
-        </div>
+        <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
         <h3>CSS</h3>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">
-          <i class="fab fa-js-square"></i>
-        </div>
+        <div class="skill-icon"><i class="fab fa-js-square"></i></div>
         <h3>JavaScript</h3>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">
-          <i class="fab fa-php"></i>
-        </div>
+        <div class="skill-icon"><i class="fab fa-php"></i></div>
         <h3>PHP</h3>
       </div>
     </div>
   </section>
 
   <section id="projects" class="hidden">
-        <h2 class="section-title">Project</h2>
+    <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-image">
-          <i class="fas fa-hammer"></i>
-        </div>
-        <h3 class="project-title">Coming Soon...</h3>
-        <p class="project-desc">Sedang belajar keras dan segera merilis project-project keren! 
-        <br><br>
-        <strong>Stay tuned! 🔥</strong></p>
+        <div class="project-image"><i class="fas fa-hammer"></i></div>
+        <h3 class="project-title">Coming Soon</h3>
       </div>
     </div>
   </section>
 
   <section id="contact" class="hidden">
-    <h2 class="section-title">Hubungi Saya</h2>
+    <h2 class="section-title">Let's Connect</h2>
     <div class="contact-content">
       <div class="contact-info">
-        <h3>Yuk Berkolaborasi!</h3>
+        <h3>Ngobrol Kuy!</h3>
         <p style="color: var(--dark-gray); margin-bottom: 2rem; font-size: 1.1rem;">
-          Saya terbuka untuk diskusi project, magang, atau sharing ilmu programming. 
-          <br>Backend Developer masa depan siap belajar! 💪
+         Aku masih di perjalanan buat jadi developer yang lebih baik. Kalau mau ngobrol atau lagi butuh sesuatu, 
+        <br> Jangan sungkan untuk hubungi aku ya! 🚀
         </p>
         
         <div class="contact-item">
           <i class="fas fa-envelope"></i>
           <div>
             <strong>Email</strong>
-            <p>fahri@example.com</p>
+            <p>archimuru@gmail.com</p>
           </div>
         </div>
         
@@ -603,7 +612,7 @@
           <i class="fas fa-phone"></i>
           <div>
             <strong>WhatsApp</strong>
-            <p>+62 812-3456-7890</p>
+            <p>+62 882-0152-27539</p>
           </div>
         </div>
       </div>
@@ -611,19 +620,19 @@
       <div class="social-section">
         <h3>Social Media</h3>
         <div class="social-links">
-          <a href="#" class="social-link contact-social" title="Instagram" target="_blank">
+          <a href="https://www.instagram.com/alfahrii_28/?__pwa=1" class="social-link contact-social" title="Instagram" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="social-link contact-social" title="Facebook" target="_blank">
+          <a href="https://www.facebook.com/profile.php?id=100089197663161" class="social-link contact-social" title="Facebook" target="_blank">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="#" class="social-link contact-social" title="TikTok" target="_blank">
+          <a href="https://www.tiktok.com/@alfahrii_28" class="social-link contact-social" title="TikTok" target="_blank">
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://wa.me/6281234567890?text=Halo%20Fahri!%20Saya%20tertarik%20dengan%20portfolio%20kamu%20🚀" class="social-link contact-social" title="WhatsApp" target="_blank">
+          <a href="https://wa.me/62882015227539?text=Halo%20Fahri!%20Saya%20tertarik%20dengan%20portfolio%20kamu%20🚀" class="social-link contact-social" title="WhatsApp" target="_blank">
             <i class="fab fa-whatsapp"></i>
           </a>
-          <a href="#" class="social-link contact-social" title="GitHub" target="_blank">
+          <a href="https://github.com/Alfahrii" class="social-link contact-social" title="GitHub" target="_blank">
             <i class="fab fa-github"></i>
           </a>
         </div>
@@ -631,28 +640,55 @@
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2024 FahriDev. Dibuat dengan ❤️ untuk belajar Backend Development.</p>
-  </footer>
+    <footer>
+  <p>"Keep Learning, Keep Building"</p>
+  <p>&copy; 2026 FDev. All Rights Reserved.</p>
+    </footer>
 
   <script>
-    // Smooth scrolling untuk semua link anchor
+    const nav = document.getElementById('mainNav');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function handleNavVisibility() {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 10) {
+        nav.classList.remove('nav--hidden');
+      } else if (currentScrollY > lastScrollY + 5) {
+        nav.classList.add('nav--hidden');
+      } else if (currentScrollY < lastScrollY - 5) {
+        nav.classList.remove('nav--hidden');
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(handleNavVisibility);
+        ticking = true;
+      }
+    }, { passive: true });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        nav.classList.remove('nav--hidden');
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // Navbar scroll effect dan active link
+    const scrollProgress = document.querySelector('.scroll-progress');
     window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.nav');
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      scrollProgress.style.width = ((scrollTop / docHeight) * 100) + '%';
+
       if (window.scrollY > 100) {
         nav.style.background = 'rgba(255, 255, 255, 0.98)';
         nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
@@ -661,37 +697,25 @@
         nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
       }
 
-      // Active nav link
       const sections = document.querySelectorAll('section');
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= (sectionTop - 200)) {
+        if (window.scrollY >= (section.offsetTop - 200)) {
           current = section.getAttribute('id');
         }
       });
-
       document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
           link.classList.add('active');
         }
       });
+    }, { passive: true });
 
-      // Scroll progress bar
-      const scrollProgress = document.querySelector('.scroll-progress');
-      const scrollTop = window.pageYOffset;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      scrollProgress.style.width = progress + '%';
-    });
-
-    // Intersection Observer untuk animasi fade-in
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.1 });
 
@@ -700,31 +724,17 @@
       observer.observe(el);
     });
 
-    // Parallax effect untuk background
+   
     window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
       const parallax = document.querySelector('.bg-particles');
-      const speed = scrolled * 0.3;
-      parallax.style.transform = `translateY(${speed}px)`;
-    });
+      parallax.style.transform = `translateY(${window.pageYOffset * 0.3}px)`;
+    }, { passive: true });
 
-    // Page load animation
+   
     window.addEventListener('load', () => {
       document.body.style.opacity = '0';
       document.body.style.transition = 'opacity 0.6s ease';
-      setTimeout(() => {
-        document.body.style.opacity = '1';
-      }, 200);
-    });
-
-    // WhatsApp auto-open
-    document.querySelectorAll('.social-link:has(.fa-whatsapp), .btn-primary:has(.fa-whatsapp)').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.querySelector('.fa-whatsapp')) {
-          e.preventDefault();
-          window.open('https://wa.me/6281234567890?text=Halo%20Fahri!%20Saya%20tertarik%20dengan%20portfolio%20kamu%20🚀', '_blank');
-        }
-      });
+      setTimeout(() => { document.body.style.opacity = '1'; }, 200);
     });
   </script>
 </body>
